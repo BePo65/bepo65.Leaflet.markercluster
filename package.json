@@ -4,6 +4,7 @@
 	"version": "1.4.1",
 	"description": "Provides Beautiful Animated Marker Clustering functionality for Leaflet",
 	"devDependencies": {
+		"@rollup/plugin-inject": "^4.0.1",
 		"git-rev-sync": "^2.0.0",
 		"happen": "^0.3.2",
 		"jake": "10.4.5",
