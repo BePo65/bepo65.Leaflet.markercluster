@@ -4,7 +4,7 @@
 		"type": "git",
 		"url": "git://github.com/BePo65/bepo65.Leaflet.markercluster.git"
 	},
-	"version": "1.7.0",
+	"version": "1.7.1",
 	"description": "Patched version of Leaflet.markercluster",
 	"devDependencies": {
 		"@rollup/plugin-inject": "^4.0.1",
