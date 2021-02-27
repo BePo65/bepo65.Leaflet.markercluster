@@ -1,17 +1,13 @@
-Leaflet.markercluster
+bepo65.Leaflet.markercluster
 =====================
 
-> @bepo65/Leaflet.markercluster is a clone of the project [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) Version 1.4.1. The modifications adapt it to the requirements of leaflet 1.7 and integrate some pull requests from [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) (needed by my project).
+> bepo65.Leaflet.markercluster is a clone of the project [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) Version 1.4.1. The modifications adapt it to the requirements of leaflet 1.6 and integrate some pull requests from [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) (needed by my angular project).
 
 Provides Beautiful Animated Marker Clustering functionality for [Leaflet](http://leafletjs.com), a JS library for interactive maps.
 
-*Requires Leaflet 1.0.0*
+*Requires Leaflet ^1.6.0*
 
 ![cluster map example](example/map.png)
-
-For a Leaflet 0.7 compatible version, [use the leaflet-0.7 branch](https://github.com/Leaflet/Leaflet.markercluster/tree/leaflet-0.7)<br>
-For a Leaflet 0.5 compatible version, [Download b128e950](https://github.com/Leaflet/Leaflet.markercluster/archive/b128e950d8f5d7da5b60bd0aa9a88f6d3dd17c98.zip)<br>
-For a Leaflet 0.4 compatible version, [Download the 0.2 release](https://github.com/Leaflet/Leaflet.markercluster/archive/0.2.zip)
 
 <!---
 TOC created with gh-md-toc
@@ -50,9 +46,7 @@ removed link to h1 and indented back 2 spaces all links.
 
 
 ## Using the plugin
-Include the plugin CSS and JS files on your page after Leaflet files, using your method of choice:
-* [Download the `v1.4.1` release](https://github.com/Leaflet/Leaflet.markercluster/archive/v1.4.1.zip)
-* Use unpkg CDN: `https://unpkg.com/leaflet.markercluster@1.4.1/dist/`
+Include the plugin CSS and JS files on your page after Leaflet files:
 * Install with npm: `npm install leaflet.markercluster`
 
 In each case, use files in the `dist` folder:
@@ -61,7 +55,7 @@ In each case, use files in the `dist` folder:
 * `leaflet.markercluster.js` (or `leaflet.markercluster-src.js` for the non-minified version)
 
 ### Building, testing and linting scripts
-Install jake `npm install -g jake` then run `npm install`
+Run `npm install`
 * To check the code for errors and build Leaflet from source, run `jake`.
 * To run the tests, run `jake test`.
 
