@@ -82,7 +82,6 @@ module.exports = function (config) {
 		// - Firefox
 		// - Opera
 		// - Safari (only Mac)
-		// - IE (only Windows)
 		browsers: ['ChromeHeadless'],
 
 		// If browser does not capture in given timeout [ms], kill it
