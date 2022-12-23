@@ -14,7 +14,8 @@ module.exports = function (config) {
 		"node_modules/happen/happen.js",
 		"spec/suites/SpecHelper.js",
 		"spec/suites/**/*.js",
-		"dist/*.css"
+		"dist/*.css",
+		{pattern: 'spec/images/*.png', watched: false, included: false, served: true, nocache: false}
 	];
 
 	config.set({
@@ -24,6 +25,8 @@ module.exports = function (config) {
 		plugins: [
 			'karma-rollup-preprocessor',
 			'karma-mocha',
+			'karma-mocha',
+			'karma-mocha-reporter',
 			'karma-coverage',
 			'karma-phantomjs-launcher',
 			'karma-chrome-launcher',
@@ -36,9 +39,9 @@ module.exports = function (config) {
 
 		// list of files / patterns to load in the browser
 		files: files,
-// 		proxies: {
-// 			'/base/dist/images/': 'dist/images/'
-// 		},
+		proxies: {
+			'/images/': '/base/spec/images/'
+		},
 		exclude: [],
 
 		// Rollup the ES6 Leaflet.markercluster sources into just one file, before tests
@@ -56,8 +59,8 @@ module.exports = function (config) {
 		},
 
 		// test results reporter to use
-		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-		reporters: ['dots'],
+		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage', 'mocha'
+		reporters: ['mocha'],
 
 		// web server port
 		port: 9876,
