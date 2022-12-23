@@ -34,13 +34,13 @@ export default {
 		banner,
 		file: 'dist/leaflet.markercluster-src.js',
 		format: 'umd',
-		legacy: true, // Needed to create files loadable by IE8
 		name: 'Leaflet.markercluster',
 		sourcemap: true,
 		globals: {
 			"leaflet": "L"
 		}
 	},
+	external: ['leaflet'],
 	plugins: [
 		release ? json() : rollupGitVersion(),
 		inject({

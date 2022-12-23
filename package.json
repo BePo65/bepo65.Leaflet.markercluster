@@ -7,8 +7,8 @@
 	"version": "1.7.1",
 	"description": "Patched version of Leaflet.markercluster",
 	"devDependencies": {
-		"@rollup/plugin-inject": "^4.0.1",
-		"git-rev-sync": "^2.0.0",
+		"@rollup/plugin-inject": "^5.0.3",
+		"git-rev-sync": "^3.0.2",
 		"happen": "^0.3.2",
 		"jake": "^10.8.5",
 		"jshint": "^2.13.6",
@@ -24,7 +24,7 @@
 		"leaflet": "^1.7.1",
 		"mocha": "^10.2.0",
 		"phantomjs-prebuilt": "^2.1.16",
-		"rollup": "^1.31.0",
+		"rollup": "^2.79.1",
 		"rollup-plugin-git-version": "^0.3.1",
 		"rollup-plugin-json": "^4.0.0",
 		"uglify-js": "^3.17.4"
