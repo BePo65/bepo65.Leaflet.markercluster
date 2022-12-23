@@ -2,13 +2,15 @@
 // Config file for running Rollup in "normal" mode (non-watch)
 
 import inject from '@rollup/plugin-inject';
-import rollupGitVersion from 'rollup-plugin-git-version'
-import json from 'rollup-plugin-json'
+import rollupGitVersion from 'rollup-plugin-git-version';
+import json from 'rollup-plugin-json';
 
-import gitRev from 'git-rev-sync'
+import gitRev from 'git-rev-sync';
+import fs from 'node:fs';
+import path from 'node:path';
 
-
-let version = require('../package.json').version;
+const packageJsonData = fs.readFileSync(path.resolve('./package.json'));
+let version = JSON.parse(packageJsonData).version;
 let release;
 
 // Skip the git branch+rev in the banner when doing a release build
