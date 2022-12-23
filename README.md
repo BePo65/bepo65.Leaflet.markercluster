@@ -3,6 +3,11 @@ bepo65.Leaflet.markercluster
 
 > bepo65.Leaflet.markercluster is a clone of the project [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) Version 1.4.1. The modifications adapt it to the requirements of leaflet 1.7, integrate 1 pull request from [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) (needed by my angular project) and add type definition file (as this will get a scoped package).
 
+Known issues
++ cannot udate to rollup@^3 as that requires ESM modules.
+----
+**Start of original README**
+
 Provides Beautiful Animated Marker Clustering functionality for [Leaflet](http://leafletjs.com), a JS library for interactive maps.
 
 *Requires Leaflet ^1.6.0*
@@ -15,34 +20,35 @@ https://github.com/ekalinin/github-markdown-toc
 removed link to h1 and indented back 2 spaces all links.
 -->
 ## Table of Contents
-  * [Using the plugin](#using-the-plugin)
-    * [Building, testing and linting scripts](#building-testing-and-linting-scripts)
-    * [Examples](#examples)
-    * [Usage](#usage)
-  * [Options](#options)
-    * [Defaults](#defaults)
-    * [Customising the Clustered Markers](#customising-the-clustered-markers)
-    * [Customising Spiderfy shape positions](#customising-spiderfy-shape-positions)
-    * [All Options](#all-options)
-      * [Enabled by default (boolean options)](#enabled-by-default-boolean-options)
-      * [Other options](#other-options)
-      * [Chunked addLayers options](#chunked-addlayers-options)
-  * [Events](#events)
-    * [Additional MarkerClusterGroup Events](#additional-markerclustergroup-events)
-  * [Methods](#methods)
-    * [Group methods](#group-methods)
-      * [Adding and removing Markers](#adding-and-removing-markers)
-      * [Bulk adding and removing Markers](#bulk-adding-and-removing-markers)
-      * [Getting the visible parent of a marker](#getting-the-visible-parent-of-a-marker)
-      * [Refreshing the clusters icon](#refreshing-the-clusters-icon)
-      * [Other Group Methods](#other-group-methods)
-    * [Clusters methods](#clusters-methods)
-      * [Getting the bounds of a cluster](#getting-the-bounds-of-a-cluster)
-      * [Zooming to the bounds of a cluster](#zooming-to-the-bounds-of-a-cluster)
-      * [Other clusters methods](#other-clusters-methods)
-  * [Handling LOTS of markers](#handling-lots-of-markers)
-  * [License](#license)
-  * [Sub-plugins](#sub-plugins)
+- [bepo65.Leaflet.markercluster](#bepo65leafletmarkercluster)
+  - [Table of Contents](#table-of-contents)
+  - [Using the plugin](#using-the-plugin)
+    - [Building, testing and linting scripts](#building-testing-and-linting-scripts)
+    - [Examples](#examples)
+    - [Usage](#usage)
+  - [Options](#options)
+    - [Defaults](#defaults)
+    - [Customising the Clustered Markers](#customising-the-clustered-markers)
+    - [Customising Spiderfy shape positions](#customising-spiderfy-shape-positions)
+    - [All Options](#all-options)
+      - [Enabled by default (boolean options)](#enabled-by-default-boolean-options)
+      - [Other options](#other-options)
+      - [Chunked addLayers options](#chunked-addlayers-options)
+  - [Events](#events)
+    - [Additional MarkerClusterGroup Events](#additional-markerclustergroup-events)
+  - [Methods](#methods)
+    - [Group methods](#group-methods)
+      - [Adding and removing Markers](#adding-and-removing-markers)
+      - [Bulk adding and removing Markers](#bulk-adding-and-removing-markers)
+      - [Getting the visible parent of a marker](#getting-the-visible-parent-of-a-marker)
+      - [Refreshing the clusters icon](#refreshing-the-clusters-icon)
+      - [Other Group Methods](#other-group-methods)
+    - [Clusters methods](#clusters-methods)
+      - [Getting the bounds of a cluster](#getting-the-bounds-of-a-cluster)
+      - [Zooming to the bounds of a cluster](#zooming-to-the-bounds-of-a-cluster)
+      - [Other clusters methods](#other-clusters-methods)
+  - [Handling LOTS of markers](#handling-lots-of-markers)
+  - [License](#license)
 
 
 ## Using the plugin
