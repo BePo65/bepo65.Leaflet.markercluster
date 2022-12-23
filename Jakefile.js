@@ -1,15 +1,9 @@
 /*
 Leaflet.markercluster building, testing and linting scripts.
 
-To use, install Node, then run the following commands in the project root:
-
-    npm install -g jake
-    npm install
-
-To check the code for errors and build Leaflet from source, run "jake".
+To check the code for errors and build Leaflet from source, run "jake lint" in
+directory '/build'.
 To run the tests, run "jake test".
-
-For a custom build, open build/build.html in the browser and follow the instructions.
 */
 
 var path = require('path');
@@ -41,13 +35,13 @@ task('uglify', ['build'], function(){
   jake.exec('npm run-script uglify', function() { console.log('Uglyfied.'); });
 });
 
-desc('Run PhantomJS tests');
+desc('Run ChromeHeadless tests');
 task('test', ['lint'], function() {
 
 	var karma = require('karma'),
 	testConfig = {configFile : path.join(__dirname, './spec/karma.conf.js')};
 
-	testConfig.browsers = ['PhantomJS'];
+	testConfig.browsers = ['ChromeHeadless'];
 
 	function isArgv(optName) {
 		 return process.argv.indexOf(optName) !== -1;

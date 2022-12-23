@@ -3,8 +3,6 @@ var json = require('rollup-plugin-json');
 // Karma configuration
 module.exports = function (config) {
 
-	// 	var libSources = require(__dirname + '/../build/build.js').getFiles();
-
 	var files = [
 		"spec/sinon.js",
 		"spec/expect.js",
@@ -77,19 +75,15 @@ module.exports = function (config) {
 		// Start these browsers, currently available:
 		// - Chrome
 		// - ChromeCanary
+		// - ChromeHeadless
 		// - Firefox
 		// - Opera
 		// - Safari (only Mac)
-		// - PhantomJS
 		// - IE (only Windows)
-		browsers: ['PhantomJS'],
+		browsers: ['ChromeHeadless'],
 
 		// If browser does not capture in given timeout [ms], kill it
 		captureTimeout: 5000,
-
-		// Workaround for PhantomJS random DISCONNECTED error
-		browserDisconnectTimeout: 10000, // default 2000
-		browserDisconnectTolerance: 1, // default 0
 
 		// Continuous Integration mode
 		// if true, it capture browsers, run tests and exit
