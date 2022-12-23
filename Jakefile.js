@@ -6,7 +6,7 @@ directory '/build'.
 To run the tests, run "jake test".
 */
 
-var path = require('path');
+const path = require('path');
 
 desc('Check Leaflet.markercluster source for errors with JSHint');
 task('lint', {
@@ -38,50 +38,61 @@ task('uglify', ['build'], function(){
 desc('Run ChromeHeadless tests');
 task('test', ['lint'], function() {
 
-	var karma = require('karma'),
-	testConfig = {configFile : path.join(__dirname, './spec/karma.conf.js')};
+	const karma = require('karma');
+	const parseConfig = karma.config.parseConfig;
+	const Server = karma.Server;
 
-	testConfig.browsers = ['ChromeHeadless'];
+	cliOptions = {};
+	cliOptions.browsers = ['ChromeHeadless'];
 
 	function isArgv(optName) {
 		 return process.argv.indexOf(optName) !== -1;
 	}
 
 	if (isArgv('--chrome')) {
-		testConfig.browsers.push('Chrome');
+		cliOptions.browsers.push('Chrome');
 	}
 	if (isArgv('--safari')) {
-		testConfig.browsers.push('Safari');
+		cliOptions.browsers.push('Safari');
 	}
 	if (isArgv('--ff')) {
-		testConfig.browsers.push('Firefox');
-	}
-	if (isArgv('--ie')) {
-		testConfig.browsers.push('IE');
+		cliOptions.browsers.push('Firefox');
 	}
 
 	if (isArgv('--cov')) {
-		testConfig.preprocessors = {
+		cliOptions.preprocessors = {
 			'src/**/*.js': 'coverage'
 		};
-		testConfig.coverageReporter = {
+		cliOptions.coverageReporter = {
 			type : 'html',
 			dir : 'coverage/'
 		};
-		testConfig.reporters = ['coverage'];
+		cliOptions.reporters = ['coverage'];
 	}
 
 	console.log('Running tests...');
 
-	var server = new karma.Server(testConfig, function(exitCode) {
-		if (!exitCode) {
-			console.log('\tTests ran successfully.\n');
-			complete();
-		} else {
-			process.exit(exitCode);
-		}
-	});
-	server.start();
+	let server;
+	parseConfig(
+		path.join(__dirname, './spec/karma.conf.js'),
+		cliOptions,
+		{ promiseConfig: true, throwErrors: true }
+	).then(
+		(karmaConfig) => {
+			server = new Server(karmaConfig, function doneCallback(exitCode) {
+				if (!exitCode) {
+					console.log('\tTests ran successfully.\n');
+					complete();
+				} else {
+					process.exit(exitCode);
+				}
+			});
+			server?.start();
+		},
+		(rejectReason) => { 
+			console.log(`\tTests could not be started ('${rejectReason.toString()}').\n`);
+		 }
+	);
 });
 
 task('default', ['build', 'uglify']);
