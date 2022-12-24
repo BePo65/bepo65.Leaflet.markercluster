@@ -9,8 +9,8 @@
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^24.0.0",
 		"@rollup/plugin-inject": "^5.0.3",
+		"@rollup/plugin-json": "^6.0.0",
 		"@rollup/plugin-node-resolve": "^15.0.1",
-		"cross-env": "^7.0.3",
 		"git-rev-sync": "^3.0.2",
 		"happen": "^0.3.2",
 		"jake": "^10.8.5",
@@ -27,9 +27,7 @@
 		"leaflet": "^1.7.1",
 		"mocha": "^10.2.0",
 		"phantomjs-prebuilt": "^2.1.16",
-		"rollup": "^2.79.1",
-		"rollup-plugin-git-version": "^0.3.1",
-		"rollup-plugin-json": "^4.0.0",
+		"rollup": "^3.8.1",
 		"uglify-js": "^3.17.4"
 	},
 	"peerDependencies": {
@@ -40,8 +38,7 @@
 	"scripts": {
 		"test": "karma start ./spec/karma.conf.js",
 		"prepublishOnly": "jake",
-		"rollup": "rollup -c build/rollup-config.js",
-		"rollup:release": "cross-env NODE_ENV=release rollup -c build/rollup-config.js",
+		"rollup": "rollup -c build/rollup-config.mjs",
 		"uglify": "uglifyjs dist/leaflet.markercluster-src.js -c -m -o dist/leaflet.markercluster.js --source-map \"filename=dist/leaflet.markercluster.js.map,content=dist/leaflet.markercluster-src.js.map,url=leaflet.markercluster.js.map\""
 	},
 	"keywords": [

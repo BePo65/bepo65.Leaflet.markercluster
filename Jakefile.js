@@ -3,7 +3,7 @@ Leaflet.markercluster building, testing and linting scripts.
 
 To check the code for errors and build Leaflet from source, run "jake lint" in
 directory '/build'.
-To run the tests, run "jake test".
+To run the tests, run "npx jake test".
 */
 
 const path = require('path');
@@ -26,16 +26,6 @@ task('build', ['lint'], {
 }, function(){
 	jake.exec('npm run-script rollup', function() {
 		console.log('Rolled up.');
-		complete();
-	});
-});
-
-desc('Combine Leaflet.markercluster source files for release');
-task('build-release', ['lint'], {
-	async: true
-}, function(){
-	jake.exec('npm run-script rollup:release', function() {
-		console.log('Rolled up for release.');
 		complete();
 	});
 });
