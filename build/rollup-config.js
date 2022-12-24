@@ -26,8 +26,8 @@ if (process.env.NODE_ENV === 'release') {
 const banner = `/*
  * Leaflet.markercluster ` + version + `,
  * Provides Beautiful Animated Marker Clustering functionality for Leaflet, a JS library for interactive maps.
- * https://github.com/Leaflet/Leaflet.markercluster
- * (c) 2012-2017, Dave Leaver, smartrak
+ * https://github.com/BePo65/bepo65.Leaflet.markercluster
+ * (c) 2012-2022, Bernhard Pottler
  */`;
 
 export default {
