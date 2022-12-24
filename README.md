@@ -3,8 +3,9 @@ bepo65.Leaflet.markercluster
 
 > bepo65.Leaflet.markercluster is a clone of the project [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) Version 1.4.1. The modifications adapt it to the requirements of leaflet 1.7, integrate 1 pull request from [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) (needed by my angular project) and add type definition file (as this will get a scoped package).
 
-Known issues
-+ cannot udate to rollup@^3 as that requires ESM modules.
+Modifications:
++ Made the release build the only one available, as rollup-plugin-git-version does not work with rollup@^3. Tollup v3 only handles ESM modules.
+
 ----
 **Start of original README**
 
