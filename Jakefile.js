@@ -30,6 +30,16 @@ task('build', ['lint'], {
 	});
 });
 
+desc('Combine Leaflet.markercluster source files for release');
+task('build-release', ['lint'], {
+	async: true
+}, function(){
+	jake.exec('npm run-script rollup:release', function() {
+		console.log('Rolled up for release.');
+		complete();
+	});
+});
+
 desc('Compress bundled files');
 task('uglify', ['build'], function(){
   jake.exec('npm run-script uglify', function() { console.log('Uglyfied.'); });

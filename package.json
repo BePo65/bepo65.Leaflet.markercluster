@@ -7,7 +7,10 @@
 	"version": "1.7.1",
 	"description": "Patched version of Leaflet.markercluster",
 	"devDependencies": {
+		"@rollup/plugin-commonjs": "^24.0.0",
 		"@rollup/plugin-inject": "^5.0.3",
+		"@rollup/plugin-node-resolve": "^15.0.1",
+		"cross-env": "^7.0.3",
 		"git-rev-sync": "^3.0.2",
 		"happen": "^0.3.2",
 		"jake": "^10.8.5",
@@ -38,6 +41,7 @@
 		"test": "karma start ./spec/karma.conf.js",
 		"prepublishOnly": "jake",
 		"rollup": "rollup -c build/rollup-config.js",
+		"rollup:release": "cross-env NODE_ENV=release rollup -c build/rollup-config.js",
 		"uglify": "uglifyjs dist/leaflet.markercluster-src.js -c -m -o dist/leaflet.markercluster.js --source-map \"filename=dist/leaflet.markercluster.js.map,content=dist/leaflet.markercluster-src.js.map,url=leaflet.markercluster.js.map\""
 	},
 	"keywords": [
