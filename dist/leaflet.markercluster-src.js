@@ -1,16 +1,14 @@
 /*
- * Leaflet.markercluster 1.7.1+master.330e089,
+ * Leaflet.markercluster 1.9.0,
  * Provides Beautiful Animated Marker Clustering functionality for Leaflet, a JS library for interactive maps.
- * https://github.com/Leaflet/Leaflet.markercluster
- * (c) 2012-2017, Dave Leaver, smartrak
+ * https://github.com/BePo65/bepo65.Leaflet.markercluster
+ * (c) 2012-2022, Bernhard Pottler
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('leaflet')) :
 	typeof define === 'function' && define.amd ? define(['exports', 'leaflet'], factory) :
-	(global = global || self, factory((global.Leaflet = global.Leaflet || {}, global.Leaflet.markercluster = {}), global.L));
-}(this, (function (exports, L) { 'use strict';
-
-	L = L && Object.prototype.hasOwnProperty.call(L, 'default') ? L['default'] : L;
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.Leaflet = global.Leaflet || {}, global.Leaflet.markercluster = {}), global.L));
+})(this, (function (exports, L) { 'use strict';
 
 	/*
 	 * L.MarkerClusterGroup extends L.FeatureGroup by clustering the markers contained within
@@ -2703,7 +2701,5 @@
 	exports.MarkerCluster = MarkerCluster;
 	exports.MarkerClusterGroup = MarkerClusterGroup;
 
-	Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
+}));
 //# sourceMappingURL=leaflet.markercluster-src.js.map
