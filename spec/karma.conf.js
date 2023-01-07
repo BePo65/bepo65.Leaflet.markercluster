@@ -1,9 +1,7 @@
-var json = require('rollup-plugin-json');
+var json = require('@rollup/plugin-json');
 
 // Karma configuration
 module.exports = function (config) {
-
-	// 	var libSources = require(__dirname + '/../build/build.js').getFiles();
 
 	var files = [
 		"spec/sinon.js",
@@ -16,7 +14,8 @@ module.exports = function (config) {
 		"node_modules/happen/happen.js",
 		"spec/suites/SpecHelper.js",
 		"spec/suites/**/*.js",
-		"dist/*.css"
+		"dist/*.css",
+		{pattern: 'spec/images/*.png', watched: false, included: false, served: true, nocache: false}
 	];
 
 	config.set({
@@ -26,8 +25,8 @@ module.exports = function (config) {
 		plugins: [
 			'karma-rollup-preprocessor',
 			'karma-mocha',
+			'karma-mocha-reporter',
 			'karma-coverage',
-			'karma-phantomjs-launcher',
 			'karma-chrome-launcher',
 			'karma-safari-launcher',
 			'karma-firefox-launcher'
@@ -38,9 +37,9 @@ module.exports = function (config) {
 
 		// list of files / patterns to load in the browser
 		files: files,
-// 		proxies: {
-// 			'/base/dist/images/': 'dist/images/'
-// 		},
+		proxies: {
+			'/images/': '/base/spec/images/'
+		},
 		exclude: [],
 
 		// Rollup the ES6 Leaflet.markercluster sources into just one file, before tests
@@ -58,8 +57,8 @@ module.exports = function (config) {
 		},
 
 		// test results reporter to use
-		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-		reporters: ['dots'],
+		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage', 'mocha'
+		reporters: ['mocha'],
 
 		// web server port
 		port: 9876,
@@ -77,19 +76,14 @@ module.exports = function (config) {
 		// Start these browsers, currently available:
 		// - Chrome
 		// - ChromeCanary
+		// - ChromeHeadless
 		// - Firefox
 		// - Opera
 		// - Safari (only Mac)
-		// - PhantomJS
-		// - IE (only Windows)
-		browsers: ['PhantomJS'],
+		browsers: ['ChromeHeadless'],
 
 		// If browser does not capture in given timeout [ms], kill it
 		captureTimeout: 5000,
-
-		// Workaround for PhantomJS random DISCONNECTED error
-		browserDisconnectTimeout: 10000, // default 2000
-		browserDisconnectTolerance: 1, // default 0
 
 		// Continuous Integration mode
 		// if true, it capture browsers, run tests and exit
