@@ -1,6 +1,11 @@
 Leaflet.markercluster
 =====================
 
+## 1.9.0 (2023-01-07)
+
+Compatible leaflet version bumped to 1.9.0 ('<2.0')
+
+
 ## 1.7.1 (2021-02-27)
 
 ### Improvements
