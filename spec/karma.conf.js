@@ -25,7 +25,6 @@ module.exports = function (config) {
 		plugins: [
 			'karma-rollup-preprocessor',
 			'karma-mocha',
-			'karma-mocha',
 			'karma-mocha-reporter',
 			'karma-coverage',
 			'karma-chrome-launcher',
