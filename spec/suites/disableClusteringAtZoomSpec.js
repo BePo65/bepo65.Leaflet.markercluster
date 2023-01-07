@@ -1,12 +1,17 @@
-describe('disableClusteringAtZoom option', function () {
+/* We need real delays to update group elements in the js event loop.
+   Therefore I replaced the simulated clock.tick with async setTimeout
+	 ('await (new Promise(resolve => setTimeout(resolve, 1000)));').
+ */
+
+describe('disableClusteringAtZoom option', function() {
 	/////////////////////////////
 	// SETUP FOR EACH TEST
 	/////////////////////////////
-	var div, map, group, clock;
+	let div;
+	let map;
+	let group;
 
-	beforeEach(function () {
-		clock = sinon.useFakeTimers();
-
+	beforeEach(function() {
 		div = document.createElement('div');
 		div.style.width = '200px';
 		div.style.height = '200px';
@@ -21,22 +26,23 @@ describe('disableClusteringAtZoom option', function () {
 		]));
 	});
 
-	afterEach(function () {
+	afterEach(function() {
 		group.clearLayers();
 		map.removeLayer(group);
 		map.remove();
 		div.remove();
-		clock.restore();
-		
-		div, map, group, clock = null;
+
+		div = null;
+		map = null;
+		group = null;
 	});
 
 	/////////////////////////////
 	// TESTS
 	/////////////////////////////
-	it('unclusters at zoom level equal or higher', function () {
-
-		var maxZoom = 15;
+	it('unclusters at zoom level equal or higher', async function() {
+		this.timeout(3000);
+		let maxZoom = 15;
 
 		group = new L.MarkerClusterGroup({
 			disableClusteringAtZoom: maxZoom
@@ -53,11 +59,11 @@ describe('disableClusteringAtZoom option', function () {
 		expect(map._panes.markerPane.childNodes.length).to.equal(1); // 1 cluster.
 
 		map.setZoom(14);
-		clock.tick(1000);
+		await (new Promise(resolve => setTimeout(resolve, 1000)));
 		expect(map._panes.markerPane.childNodes.length).to.equal(1); // 1 cluster.
 
 		map.setZoom(15);
-		clock.tick(1000);
+		await (new Promise(resolve => setTimeout(resolve, 1000)));
 		expect(map._panes.markerPane.childNodes.length).to.equal(2); // 2 markers.
 	});
 });
